@@ -21,7 +21,7 @@ error::
     @app.route('/consumes_json_only')
     @consumes('application/json')
     def consumes_json_only():
-        return 'json only'
+        return 'consumes json only'
 
 Setup a route that will only allow an `Accept` header of `application/json`,
 otherwise return a HTTP 406 (Unacceptable) error::
@@ -29,7 +29,7 @@ otherwise return a HTTP 406 (Unacceptable) error::
     @app.route('/accepts_json_only')
     @produces('application/json')
     def consumes_json_and_html():
-        return 'json and html'
+        return 'produces json only'
 
 If you want to specify more than one Content-Type or Accept header just
 pass additional paramters::
