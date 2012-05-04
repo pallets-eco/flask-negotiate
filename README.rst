@@ -15,14 +15,16 @@ Create an app::
     
 
 Setup a route that will only consume requests with a `Content-Type` of 
-`application/json`::
+`application/json`, otherwise return a HTTP 415 (Unsupported Media Type)
+error::
 
     @app.route('/consumes_json_only')
     @consumes('application/json')
     def consumes_json_only():
         return 'json only'
 
-Setup a route that will only allow an `Accept` header of `application/json`::
+Setup a route that will only allow an `Accept` header of `application/json`,
+otherwise return a HTTP 406 (Unacceptable) error::
 
     @app.route('/accepts_json_only')
     @produces('application/json')
