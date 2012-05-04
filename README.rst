@@ -43,4 +43,4 @@ Install
 
 Installation is simple too::
 
-    $ pip install https://github.com/mattupstate/flask-negotiate/tarball/master
+    $ pip install Flask-Negotiate
