@@ -15,7 +15,7 @@ from setuptools import setup
 
 setup(
     name='Flask-Negotiate',
-    version='0.1.0-dev',
+    version='0.1.0',
     url='https://github.com/mattupstate/flask-negotiate',
     license='MIT',
     author='Matthew Wright',
