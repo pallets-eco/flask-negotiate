@@ -99,7 +99,7 @@ html_theme = 'flask_small'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'github_fork': 'mattupstate/flask-security',
+    'github_fork': 'mattupstate/flask-negotiate',
     'index_logo': False
 }
 
