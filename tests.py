@@ -6,6 +6,8 @@ from flask_negotiate import consumes, produces
 HTML = 'text/html'
 JSON = 'application/json'
 XML = 'application/xml'
+ANY_TEXT = 'text/*'
+ANY = '*/*'
 
 UNSUPPORTED_CODE = 415
 NOT_ACCEPTABLE_CODE = 406
@@ -18,6 +20,8 @@ PRODUCES_JSON_AND_HTML = '/produces_json_and_html'
 HTML_HEADERS = {'Accept': HTML}
 JSON_HEADERS = {'Accept': JSON}
 XML_HEADERS = {'Accept': XML}
+ANY_HEADERS = {'Accept': ANY}
+ANY_TEXT_HEADERS = {'Accept': ANY_TEXT}
 
 
 class NegotiateTestCase(unittest.TestCase):
@@ -89,3 +93,12 @@ class NegotiateTestCase(unittest.TestCase):
     def test_produces_json_and_html_ivalid_accept(self):
         r = self.client.get(PRODUCES_JSON_AND_HTML, headers=XML_HEADERS)
         self.assertUnacceptable(r)
+
+    def test_produces_json_only_accept_any(self):
+        r = self.client.get(PRODUCES_JSON_ONLY, headers = ANY_HEADERS)
+        self.assertIn(PRODUCES_JSON_ONLY, r.data)
+
+    def test_produces_json_and_html_accept_any_text(self):
+        r = self.client.get(PRODUCES_JSON_AND_HTML, headers=ANY_TEXT_HEADERS)
+        self.assertIn(PRODUCES_JSON_AND_HTML, r.data)
+
